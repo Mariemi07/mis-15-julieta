@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis 15 – Julieta</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e6dcfa, #f7f3ff);
+      color: #5a3d8c;
+      text-align: center;
+    }
+    .card {
+      max-width: 420px;
+      margin: 30px auto;
+      background: #ffffffcc;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-weight: normal;
+      margin-top: 0;
+    }
+    .name {
+      font-size: 2.6em;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .info {
+      margin: 15px 0;
+      font-size: 1.05em;
+    }
+    .btn {
+      display: block;
+      margin: 12px auto;
+      padding: 14px;
+      width: 90%;
+      border-radius: 30px;
+      border: none;
+      background: #7b5fc6;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #684fb0;
+    }
+    .countdown {
+      font-size: 1.2em;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    footer {
+      font-size: 0.8em;
+      margin-top: 20px;
+      opacity: 0.8;
+    }
+    audio {
+      margin-top: 15px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Mis 15 Años</h2>
+    <div class="name">Julieta</div>
+
+    <div class="info">
+      📅 <strong>1 de Agosto</strong><br>
+      ⏰ 21:00 hs a 4:30 hs
+    </div>
+
+    <div class="info">
+      📍 Larroque 1053 – Banfield
+    </div>
+
+    <a class="btn" href="https://www.google.com/maps?q=Larroque+1053+Banfield" target="_blank">
+      📍 Ver ubicación (GPS)
+    </a>
+
+    <a class="btn" href="https://forms.gle/REEMPLAZAR_POR_TU_FORMULARIO" target="_blank">
+      ✅ Confirmar asistencia (RSVP)
+    </a>
+
+    <div class="countdown" id="countdown"></div>
+
+    <div class="info">
+      🎁 Si querés podés sumar tu regalo: <strong>julipuy78</strong><br>
+      👗 Vestimenta: Elegante<br>
+      <small>En lo posible evitar violeta y rojo</small>
+    </div>
+
+    <audio controls autoplay loop>
+      <!-- Reemplazar src por un archivo MP3 de María Becerra -->
+      <source src="maria-becerra.mp3" type="audio/mpeg">
+      Tu navegador no soporta audio.
+    </audio>
+
+    <footer>
+      Confirmar asistencia<br>
+      Monsieur Monod Eventos
+    </footer>
+  </div>
+
+  <script>
+    const eventDate = new Date('2026-08-01T21:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = '¡Hoy es el gran día! 🎉';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('countdown').innerHTML =
+        `⏳ Faltan ${days} días ${hours} hs ${minutes} min ${seconds} seg`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
